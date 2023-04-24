@@ -1,9 +1,12 @@
 import React from 'react'
 
+// Import Components
+import ProductList from '@/components/Products/ProductList'
+
 export default function Home() {
   return (
     <div style={ containerStyles }>
-      Main
+      <ProductList />
     </div>
   )
 }
