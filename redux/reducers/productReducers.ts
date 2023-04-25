@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     products: [],
-    filteredProducts: []
+    filteredProducts: [],
+    selectedCategories: []
 }
 
 const productSlice = createSlice({
@@ -14,9 +15,12 @@ const productSlice = createSlice({
     },
     setFilteredProducts: (state, action) => {
         state.filteredProducts = action.payload
-      },
+    },
+    setSelectedCategoriese: (state, action) => {
+        state.selectedCategories = action.payload
+    }
   }
 })
 
-export const { setProducts, setFilteredProducts } = productSlice.actions
+export const { setProducts, setFilteredProducts, setSelectedCategoriese } = productSlice.actions
 export default productSlice.reducer

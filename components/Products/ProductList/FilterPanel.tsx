@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // Import Components
 import { Cascader, Typography } from 'antd'
+
+// Import Action and Methods
+import { setFilteredProducts, setSelectedCategoriese } from '@/redux/reducers/productReducers'
+import { useAppDispatch, useAppSelector } from '@/redux/store'
 
 // Constants
 const { Text } = Typography
@@ -53,11 +57,51 @@ const categoryOptions: Option[] = [
 	}
 ]
   
-const _onChange: any = (value: string[]) => {
-	console.log(value)
-}
-  
 export const FilterPanel = () => {
+	const dispatch = useAppDispatch()
+
+	// Redux Data
+	const products = useAppSelector(state => state?.product?.products ?? [])
+
+	// On Cascader Value Change
+	const _onChange: any = (value: string[]) => {
+		dispatch( setSelectedCategoriese(value) )
+		const filteredProducts = _getFilteredProductsByCategories(products, value) ?? []
+		dispatch( setFilteredProducts(filteredProducts) )
+	}
+
+	// On Set Filtered Products
+	const _getFilteredProductsByCategories = (products: any, categories: any) => {
+		if(!products || Boolean(products?.length <= 0) ) return []
+		if(!categories || Boolean(categories?.length <= 0)) return products
+
+		let data: any = []
+		const [ rootCategory, category, subCategory ] = categories
+
+		if(rootCategory){
+			data = products?.filter((d: any) => d?.root_category === rootCategory )
+		}
+
+		if(category){
+			data = data?.filter((d: any) => d?.category === category )
+		}
+
+		if(subCategory){
+			data = data?.filter((d: any) => d?.sub_category === subCategory )
+		}
+
+		return data
+		
+	}
+
+	useEffect(() => {
+		dispatch( setFilteredProducts(products) )
+	}, [])
+
+	useEffect(() => {
+		dispatch( setFilteredProducts(products) )
+	}, [ products ])
+	
   return (
     <div style={ containerStyles }>
 			<Text strong>{ 'Category' }</Text>
