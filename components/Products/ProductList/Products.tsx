@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // Import Components
 import { Image, Typography, Rate, Button, Avatar, Tooltip, Row, Col } from 'antd'
 
 // Import Icons
 import { HeartOutlined, UploadOutlined, ShoppingCartOutlined } from '@ant-design/icons'
+
+// Import Actions and Methods
+import { useAppDispatch, useAppSelector } from '@/redux/store'
+import { setProducts } from '@/redux/reducers/productReducers'
+import { repeatObjectsCircularly } from '@/utils/utils'
 
 // Constants
 const { Text, Paragraph } = Typography
@@ -54,6 +59,11 @@ const ProductCard = ({ data, onAddToCartButtonClick }: any ) => {
   )
 }
 const Products = () => {
+  const dispatch = useAppDispatch()
+
+  // Redux's Data
+  const products = useAppSelector(state => state?.product?.products ?? [])
+
   const dummyData = [
     {
       avatar_image: '/images/avatar-pictures/VRC image A(F).png',
@@ -113,10 +123,15 @@ const Products = () => {
     }
   ]
 
+  useEffect(() => {
+    const dummyProducts = repeatObjectsCircularly(dummyData, 5)
+    dispatch( setProducts(dummyProducts) )
+  }, [])
+
   return (
     <div style={ containerStyles }>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, flex: 1 }}>
-        { dummyData?.map((d: any, idx: any) => (
+        { products?.map((d: any, idx: any) => (
           <ProductCard key={ idx } data={ d } />
         ))}
       </div>
