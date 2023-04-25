@@ -28,7 +28,9 @@ const Navbar = () => {
 				<Badge count={1}>
 					<Avatar shape="square" icon={<ShoppingCartOutlined />} />
 				</Badge>
-				<Avatar shape="circle" style={{ backgroundColor: '#1890ff' }} src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+				{/* <span style={{ padding: '0px 0px', margin: '0px 0px' }}>
+          <Avatar shape="circle" style={{ backgroundColor: '#1890ff' }} src="images/user-avatar.png" />
+        </span> */}
 			</div>		
 		</div>
   )

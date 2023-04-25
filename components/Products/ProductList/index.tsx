@@ -3,6 +3,7 @@ import React from 'react'
 // Import Components
 import { Row, Col } from 'antd'
 import FilterPanel from './FilterPanel'
+import Products from './Products'
 
 const ProductList = () => {
   return (
@@ -12,7 +13,7 @@ const ProductList = () => {
                 <FilterPanel />
             </Col>
             <Col span={ 20 }>
-                Product List
+                <Products />
             </Col>
         </Row>
     </div>
