@@ -25,13 +25,13 @@ const Products = () => {
   const [ sortedProducts, setSortedProducts ]: any = useState([])
 
   // Redux's Data
-  const filteredProducts = useAppSelector(state => state?.product?.filteredProducts ?? [])
+  const matchedProducts = useAppSelector(state => state?.product?.matchedProducts ?? [])
 	const selectedCategoriese = useAppSelector(state => state?.product?.selectedCategories ?? [])
 
   const dummyData = [
     {
       avatar_image: '/images/avatar-pictures/VRC image A(F).png',
-      name: 'Avatar name “Avatown” -nice original avatar of Avatown',
+      name: 'Jinny Knixt “Avatown” -nice original avatar of Avatown',
       rating: 4.0,
       rating_count: 774444,
       likes: 33,
@@ -48,7 +48,7 @@ const Products = () => {
     },
     {
       avatar_image: '/images/avatar-pictures/VRC image E(M).png',
-      name: 'Avatar name “Avatown” -nice original avatar of Avatown',
+      name: 'Xotic Avatar name “Avatown” -nice original avatar of Avatown',
       rating: 4.3,
       rating_count: 334444,
       likes: 33,
@@ -65,7 +65,7 @@ const Products = () => {
     },
     {
       avatar_image: '/images/avatar-pictures/VRC image B(F).png',
-      name: 'Avatar name “Avatown” -nice original avatar of Avatown',
+      name: 'Killy “Avatown” -nice original avatar of Avatown',
       rating: 4.9,
       rating_count: 134414,
       likes: 33,
@@ -82,7 +82,7 @@ const Products = () => {
     },
     {
       avatar_image: '/images/avatar-pictures/VRC image C(M).png',
-      name: 'Avatar name “Avatown” -nice original avatar of Avatown',
+      name: 'Lippo “Avatown” -nice original avatar of Avatown',
       rating: 4.5,
       rating_count: 235414,
       likes: 33,
@@ -103,22 +103,22 @@ const Products = () => {
   const _onSortingValueChange = (value: any) => {
     let sortedProducts: any = []
     if(!value){
-      sortedProducts = filteredProducts
+      sortedProducts = matchedProducts
     }
     if(value === 'price-high-to-low'){
-      sortedProducts = filteredProducts?.slice().sort((a: any, b: any) => b.price - a.price)
+      sortedProducts = matchedProducts?.slice().sort((a: any, b: any) => b.price - a.price)
     }
     if(value === 'price-low-to-high'){
-      sortedProducts = filteredProducts?.slice().sort((a: any, b: any) => a.price - b.price)
+      sortedProducts = matchedProducts?.slice().sort((a: any, b: any) => a.price - b.price)
     }
     if(value === 'new'){
-      sortedProducts = filteredProducts?.slice().sort((a: any, b: any) => a.isNew - b.isNew)
+      sortedProducts = matchedProducts?.slice().sort((a: any, b: any) => a.isNew - b.isNew)
     }
     if(value === 'customer-review'){
-      sortedProducts = filteredProducts?.slice().sort((a: any, b: any) => b.rating - a.rating)
+      sortedProducts = matchedProducts?.slice().sort((a: any, b: any) => b.rating - a.rating)
     }
     if(value === 'featured'){
-      sortedProducts = filteredProducts?.slice().sort((a: any, b: any) => b.isFeatured - a.isFeatured)
+      sortedProducts = matchedProducts?.slice().sort((a: any, b: any) => b.isFeatured - a.isFeatured)
     }
 
     setSortedProducts(sortedProducts)
@@ -130,8 +130,8 @@ const Products = () => {
   }, [])
 
   useEffect(() => {
-    setSortedProducts(filteredProducts)
-  }, [ filteredProducts ])
+    setSortedProducts(matchedProducts)
+  }, [ matchedProducts ])
 
   return (
     <div style={ containerStyles }>
