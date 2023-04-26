@@ -27,7 +27,7 @@ const MainSection = ({ product }: any) => {
         <div className={ 'bg-slate-200 p-4' }>
             <Text strong>{ 'Great Experience. Great Value' }</Text>
             <Paragraph>
-            { `Elevate your online presence with this high-quality, premium avatar image. Our avatar images are designed to be eye-catching, professional, and memorable, making it easy for you to stand out from the crowd in any online setting` }
+                { `Elevate your online presence with this high-quality, premium avatar image. Our avatar images are designed to be eye-catching, professional, and memorable, making it easy for you to stand out from the crowd in any online setting` }
             </Paragraph>
         </div>
         <Text strong>{ 'High-quality image: Our avatar images are created using the latest design software and techniques, ensuring a sharp and high-quality final product.' }</Text>
@@ -37,7 +37,7 @@ const MainSection = ({ product }: any) => {
   )
 }
 
-// JSX
+// JSX Styles
 const containerStyles = {
     display: 'flex',
     flexDirection: 'column' as 'column',

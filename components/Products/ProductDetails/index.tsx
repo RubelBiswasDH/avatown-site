@@ -4,6 +4,7 @@ import React from 'react'
 import { Row, Col, Breadcrumb } from 'antd'
 import LeftSection from './LeftSection'
 import MainSection from './MainSection'
+import CartSection from './CartSection'
 
 // Import Actions and Methods
 import { useAppSelector } from '@/redux/store'
@@ -37,7 +38,7 @@ const ProductDetails = () => {
           <MainSection product={ product } />
         </Col>
         <Col span={ 6 }>
-          Right
+          <CartSection product={ product } />
         </Col>
       </Row>
     </div>
