@@ -2,9 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Requirements and Installation 
 
-Node "18.13.0" is used to build this project. Install package my running
-```
-    npm i
+Node version "18.13.0" is used to build this Project. Install requirements packages my running
+```bash
+npm i
 ```
 
 ## Getting Started
@@ -30,10 +30,9 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Pages and Features
-There is total 2 pages right now Product List Page and Product Details Page
+Pages: There is total 2 pages right now Product List Page and Product Details Page
 
-Not able features 
-    1. Search, Sort and Filter based on Category working on Product List Page
+Features :Search, Sort and Filter based on Category working on Product List Page
 
 ## Learn More
 
