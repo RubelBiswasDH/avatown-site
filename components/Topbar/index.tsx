@@ -81,24 +81,24 @@ const Navbar = () => {
 
 // JSX Styles
 const containerStyles = {
-    display: 'flex',
-    width: '100%',
-    maxWidth: '100%',
-    height: '100%',
-    maxHeight: '100%',
-    margin: '0px 0px',
-    padding: '0px 0px',
-    gap: 16,
-    alignItems: 'center'
+  display: 'flex',
+  width: '100%',
+  maxWidth: '100%',
+  height: '100%',
+  maxHeight: '100%',
+  margin: '0px 0px',
+  padding: '0px 0px',
+  gap: 16,
+  alignItems: 'center'
 }
 
 const linkStyles = {
-    color: '#FFFFFF',
-    fontFamily: "'Inter'",
-    fontStyle: "normal",
-    fontWeight: 500,
-    fontSize: "22px",
-    lineHeight: "27px"
+  color: '#FFFFFF',
+  fontFamily: "'Inter'",
+  fontStyle: "normal",
+  fontWeight: 500,
+  fontSize: "22px",
+  lineHeight: "27px"
 }
 
 export default Navbar
