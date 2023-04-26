@@ -142,6 +142,7 @@ const Products = () => {
           }
         />
         <Select
+          size={ 'small' }
           options={ sortingOptions }
           style={{ width: '320px' }}
           onChange={ _onSortingValueChange }
