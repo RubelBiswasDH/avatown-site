@@ -154,7 +154,7 @@ const Products = () => {
           placeholder={ 'Sort' }
         />
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8, width: '100%' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, width: '100%' }}>
         { (sortedProducts || [])?.map((d: any, idx: any) => (
           <Link href={ `/product-details/${ d?.id ?? '' }` } key={ idx }>
             <ProductCard data={ d } />

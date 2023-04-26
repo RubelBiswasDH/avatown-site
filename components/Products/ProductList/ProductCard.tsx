@@ -8,9 +8,9 @@ import { HeartOutlined, UploadOutlined, ShoppingCartOutlined } from '@ant-design
 // Constants
 const { Text, Paragraph } = Typography
 
-const ProductCard = ({ data, onAddToCartButtonClick }: any ) => {
+const ProductCard = ({ data, onAddToCartButtonClick, small }: any ) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 0, width: '258px', position: 'relative' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 0, maxWidth: small ? '160px' : '258px', position: 'relative' }}>
       <Tooltip title="Add to cart">
         <Button 
           style={{ backgroundColor: 'blue', display: 'flex', alignItems: 'center', position: 'absolute', right: 4, top: 4, zIndex: 100 }} 
@@ -21,7 +21,7 @@ const ProductCard = ({ data, onAddToCartButtonClick }: any ) => {
           { 'Add' }
         </Button>
       </Tooltip>
-      <Image style={{ borderRadius: '8px' }} width={ 258 } height={ 258 } src={ data?.avatar_image ?? '' } alt={ 'image-avatar' } preview={ false } />
+      <Image style={{ borderRadius: '8px' }} width={ small ? 160 : 258 } height={ small ? 160 : 258 } src={ data?.avatar_image ?? '' } alt={ 'image-avatar' } preview={ false } />
       <Text strong>{ data?.name ?? '' }</Text>
       <span>
         <Rate 
@@ -37,18 +37,20 @@ const ProductCard = ({ data, onAddToCartButtonClick }: any ) => {
         <Avatar src={ '/images/user-avatar.png' } style={{ backgroundColor: '#f56a00' }} />
         <Text>{ data?.user_name ?? '' }</Text>
       </div>
-      <div style={{ padding: '0px 0px' }}>
+      <div style={{ padding: '0px 0px', textAlign: 'right' }}>
         <Text>{ '$ ' }</Text>
-        <Text style={{ fontSize: '28px', lineHeight: '28px' }}>{ data?.price ?? '' }</Text>
+        <Text style={{ fontSize: small ? '16px' : '28px' }}>{ data?.price ?? '' }</Text>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '0px 0px' }}>
-        <Avatar size={ 16 } style={{ backgroundColor: '#3CD4F5' }} />
-        <Text>{ data?.type ?? '' }</Text>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '0px 0px' }}>
-        <Paragraph>{ data?.note ?? '' }</Paragraph>
-        <Button type={ 'link' } icon={ <UploadOutlined /> } />
-      </div>
+      { !Boolean(small) ? <>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '0px 0px' }}>
+          <Avatar size={ 16 } style={{ backgroundColor: '#3CD4F5' }} />
+          <Text>{ data?.type ?? '' }</Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 4, padding: '0px 0px' }}>
+          <Paragraph>{ data?.note ?? '' }</Paragraph>
+          <Button type={ 'link' } icon={ <UploadOutlined /> } />
+        </div>
+      </> : '' }
     </div>
   )
 }

@@ -1,10 +1,11 @@
 import React from 'react'
 
 // Import Components
-import { Row, Col, Breadcrumb } from 'antd'
+import { Row, Col, Breadcrumb, Divider } from 'antd'
 import LeftSection from './LeftSection'
 import MainSection from './MainSection'
 import CartSection from './CartSection'
+import MoreProductsSection from './MoreProductsSection'
 
 // Import Actions and Methods
 import { useAppSelector } from '@/redux/store'
@@ -14,7 +15,7 @@ const ProductDetails = () => {
   const product: any = useAppSelector(state => state?.product?.selectedProduct ?? null)
   return (
     <div style={ containerStyles }>
-      <Row style={{ width: '100%' }} gutter={[ 32, 32 ]}>
+      <Row style={{ width: '100%' }} gutter={[ 32, 16 ]}>
         <Col span={ 24 }>
           { product
             ? 
@@ -39,6 +40,10 @@ const ProductDetails = () => {
         </Col>
         <Col span={ 6 }>
           <CartSection product={ product } />
+        </Col>
+        <Divider />
+        <Col span={ 24 }>
+          <MoreProductsSection />
         </Col>
       </Row>
     </div>
