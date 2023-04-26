@@ -32,7 +32,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Pages and Features
 Pages: There is total 2 pages right now Product List Page and Product Details Page
 
-Features :Search, Sort and Filter based on Category working on Product List Page
+Features :Search, Sort, Pagination and Filter based on Category working on Product List Page
 
 ## Learn More
 
