@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 // Import Components
 import { Breadcrumb, Select } from 'antd'
@@ -149,9 +150,11 @@ const Products = () => {
           placeholder={ 'Sort' }
         />
       </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, width: '100%' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8, width: '100%' }}>
         { (sortedProducts || [])?.map((d: any, idx: any) => (
-          <ProductCard key={ idx } data={ d } />
+          <Link href={ `/product-details/${ d?.id ?? '' }` } key={ idx }>
+            <ProductCard data={ d } />
+          </Link>
         ))}
       </div>
     </div>

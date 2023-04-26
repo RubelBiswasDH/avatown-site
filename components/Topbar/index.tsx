@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 // Import Components
 import { Typography, Input, Avatar, Badge } from 'antd'
@@ -18,8 +19,8 @@ const Navbar = () => {
 
   return (
     <div style={ containerStyles }>
-			<img style={{ maxHeight: '100%' }} src={ 'images/logo/logo_avatown_manual_1_basi_inverse.png' } alt={ 'site-logo' } />
-			<Text underline style={ linkStyles }>{ 'Go to Marketpage' }</Text>
+			<img style={{ maxHeight: '100%' }} src={ '/images/logo/logo_avatown_manual_1_basi_inverse.png' } alt={ 'site-logo' } />
+			<Link href={ `/` }><Text underline style={ linkStyles }>{ 'Go to Marketpage' }</Text></Link>
 			<div style={{ display: 'flex', maxHeight: '90%', gap: 32, padding: '0px 16px', margin: '0px 0px 0px auto' }}>
 				<Search placeholder="Search" onSearch={ _onSearch } enterButton />
 				<Badge count={1}>
